@@ -1,0 +1,9 @@
+/* 在入口文件中，添加 Tailwind 样式指令 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 1em !important;
+}
