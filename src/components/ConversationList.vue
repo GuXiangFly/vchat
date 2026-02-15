@@ -7,7 +7,7 @@
         v-for="item in items"
         :key="item.id"
     >
-      <a href="#">
+      <a @click.prevent="goToConversation(item.id)">
         <div class="flex justify-between items-center text-sm leading-5 text-gray-500">
           <span>{{ item.selectedModel }}</span>
           <span>{{ item.updatedAt }}</span>
@@ -27,8 +27,14 @@
 <script setup lang="ts">
 import { ConversationProps } from '../types'
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { Icon } from "@iconify/vue"
+const router = useRouter()
 
 defineProps<{ items: ConversationProps[] }>()
 
+
+const goToConversation = (id: number) => {
+  router.push({ path: `/conversation/11`})
+}
 </script>

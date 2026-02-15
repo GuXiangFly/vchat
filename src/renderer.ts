@@ -27,11 +27,36 @@
  */
 
 import './index.css';
-import {createApp} from "vue";
+import { i18n } from './i18n'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia'
+import {createRouter, createMemoryHistory} from "vue-router";
 import App from "./App.vue";
 
 console.log(
   '👋 This message is being logged by "renderer.ts", included via Vite',
 );
 
-createApp(App).mount('#app');
+
+import Home from './views/Home.vue';
+import Conversation from './views/Conversation.vue';
+
+// 路由配置
+const routes = [
+    //{ path: '/', component: Conversation },
+     { path: '/', component: Home },
+    { path: '/conversation/:id', component: Conversation }
+]
+
+
+// 创建路由历史记录
+const router = createRouter({
+    history: createMemoryHistory(),
+    routes
+})
+
+
+// 初始化全局状态管理
+const pinia = createPinia()
+
+createApp(App).use(router).use(pinia).use(i18n).mount('#app');
