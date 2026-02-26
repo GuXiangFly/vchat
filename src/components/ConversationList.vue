@@ -35,6 +35,7 @@ defineProps<{ items: ConversationProps[] }>()
 
 
 const goToConversation = (id: number) => {
-  router.push({ path: `/conversation/11`})
+  console.log('goToConversation', id)
+  router.push({ path: `/conversation/${id}`})
 }
 </script>

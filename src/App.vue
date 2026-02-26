@@ -38,14 +38,21 @@ import {ConversationProps, ProviderProps} from './types'
 import {Icon} from '@iconify/vue'
 import ConversationList from "./components/ConversationList.vue";
 import ProviderSelect from "./components/ProviderSelect.vue";
+import {onMounted} from "vue";
 
-const items: ConversationProps[] = [
-  { id: 1, selectedModel: 'GPT-3.5-Turbo', title: '什么是光合作用1', createdAt: '2024-07-03', updatedAt: '2024-07-03' },
-  { id: 2, selectedModel: 'GPT-3.5-Turbo', title: '什么是光合作用', createdAt: '2024-07-03', updatedAt: '2024-07-03' },
-  { id: 3, selectedModel: 'GPT-3.5-Turbo', title: '什么是光合作用', createdAt: '2024-07-03', updatedAt: '2024-07-03' },
-  { id: 4, selectedModel: 'GPT-3.5-Turbo', title: '什么是光合作用，你的说法很请正确，理解的很不错', createdAt: '2024-07-03', updatedAt: '2024-07-03' }
-]
+import {conversations, providers} from "./testData";
+import {db} from "./db";
 
+const items =  conversations;
+
+
+onMounted((async ()=>{
+  // const inserted = await db.providers.add(providers[0])
+  // console.log(inserted)
+  const items = await db.providers.where({id:1}).toArray()
+  console.log("items", items)
+
+}))
 
 console.log('👋 This message is being logged by "App.vue", included via Vite');
 </script>
