@@ -36,26 +36,6 @@ const createWindow = async () => {
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
-    // console.log("ChatCompletion_start ")
-    //
-    // const OpenAI = require('openai');
-    //
-    // const client = new OpenAI({
-    //     apiKey: process.env['ALI_API_KEY'],
-    //     baseURL: 'https://dashscope.aliyuncs.com/compatible-mode/v1'
-    // })
-    // const stream = await client.chat.completions.create({
-    //     messages: [
-    //         { role: 'system', content: '你现在是一只卡通片里面的可爱小狗，请模仿汪汪队长的口吻进行回答' },
-    //         { role: 'user', content: '请问队长，老鼠为什么有害呢？' }
-    //     ],
-    //     model: 'qwen-turbo',
-    //     stream: true
-    // })
-    // for await (const chunk of stream) {
-    //     console.log(chunk.choices[0].delta)
-    // }
-    // console.log("ChatCompletion_end" + JSON.stringify(stream))
 };
 
 // This method will be called when Electron has finished
