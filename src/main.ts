@@ -33,8 +33,6 @@ const createWindow = async () => {
         );
     }
 
-    setEnvVariable("QIANFAN_ACCESS_KEY","ALTAKcswQzROKka66rcDbDTzm3")
-    setEnvVariable("QIANFAN_SECRET_KEY","247a1fc815c74b0ea710a8956f89e41e")
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
