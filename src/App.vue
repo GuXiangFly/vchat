@@ -40,17 +40,29 @@ import ConversationList from "./components/ConversationList.vue";
 import ProviderSelect from "./components/ProviderSelect.vue";
 import {onMounted} from "vue";
 
+import {useI18n} from "vue-i18n"
+const { t } = useI18n()
+
 import {conversations, providers} from "./testData";
-import {db} from "./db";
+import {db, initConversations, initMessages, initProviders} from "./db";
+import {initI18n} from "./i18n";
+import { useProviderStore } from './stores/provider'
+import { useConversationStore } from "./stores/conversation"
 
 const items =  conversations;
-
+const providerStore = useProviderStore()
+const conversationStore = useConversationStore()
 
 onMounted((async ()=>{
   // const inserted = await db.providers.add(providers[0])
   // console.log(inserted)
-  const items = await db.providers.where({id:1}).toArray()
-  console.log("items", items)
+
+  await initI18n()
+  await initProviders()
+  await initConversations()
+  await initMessages()
+  await conversationStore.fetchConversations()
+  await providerStore.fetchProviders()
 
 }))
 

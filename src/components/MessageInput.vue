@@ -6,14 +6,14 @@
     <div class="flex items-center">
       <input type="file" accept="image/*" ref="fileInput" class="hidden" @change="handleImageUpload">
       <Icon
-        icon="radix-icons:image"
-        width="24"
-        height="24"
-        :class="[
+          icon="radix-icons:image"
+          width="24"
+          height="24"
+          :class="[
           'mr-2',
           disabled ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 cursor-pointer hover:text-gray-600'
         ]"
-        @click="triggerFileInput"
+          @click="triggerFileInput"
       />
       <input class="outline-none border-0 flex-1 bg-white focus:ring-0" type="text" v-model="model" :disabled="disabled" :placeholder="t('common.inputPlaceholder')">
       <Button icon-name="radix-icons:paper-plane" @click="onCreate" :disabled="disabled">

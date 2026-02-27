@@ -17,8 +17,8 @@ export const i18n = createI18n<[MessageSchema], LanguageType>({
 
 // 初始化i18n的语言设置
 export async function initI18n() {
-  const config = await window.electronAPI.getConfig()
-  setI18nLanguage(config.language)
+  // const config = await window.electronAPI.getConfig()
+  setI18nLanguage('zh')
 }
 
 export function setI18nLanguage(locale: LanguageType) {
@@ -27,4 +27,4 @@ export function setI18nLanguage(locale: LanguageType) {
   } else {
     (i18n.global.locale as any).value = locale
   }
-} 
+}

@@ -3,7 +3,7 @@
     <SelectRoot v-model="currentModel">
       <SelectTrigger class="flex w-full items-center justify-between
         rounded-md py-1.5 px-3 shadow-sm border outline-none data-[placeholder]:text-gray-400">
-        <SelectValue placeholder="Select a model" />
+        <SelectValue :placeholder="t('provider.selectModel')" />
         <Icon
             icon="radix-icons:chevron-down"
             class="h-5 w-5"
@@ -55,10 +55,12 @@ import {
   SelectValue,
   SelectViewport,
 } from 'radix-vue'
+import { useI18n } from 'vue-i18n'
 import { Icon } from '@iconify/vue'
 import { ProviderProps } from '../types'
 //import { onMounted } from 'vue'
 
+const { t } = useI18n()
 const props = defineProps<{ items: ProviderProps[] }>()
 const currentModel = defineModel<string>()
 
